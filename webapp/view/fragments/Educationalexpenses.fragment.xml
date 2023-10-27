@@ -1,0 +1,94 @@
+<core:FragmentDefinition xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m"  xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:fiori="sap.ui.webc.fiori" xmlns:l="sap.ui.layout">
+	<FlexBox  alignItems="Center" class="title" justifyContent="Center">
+		<Title  text="{i18n>mainTitle}"/>
+	</FlexBox>
+	<FlexBox alignItems="Center" class="address" justifyContent="Center">
+		<Text  text="{i18n>address}" wrapping="true"/>
+	</FlexBox>
+	<ToolbarSpacer />
+	<FlexBox alignItems="Center" class="formTitle sapUiSmallMarginTop" justifyContent="Center">
+		<Text text="{i18n>projectName}" wrapping="true"/>
+	</FlexBox>
+	<f:SimpleForm  layout="ResponsiveLayout">
+		<core:Title level="H6"/>
+		<Label  text="{i18n>employeeno}"/>
+		<Text  text="{oFormModel>/Pernr}"/>
+		<Label  text="{i18n>employeename}"/>
+		<Text  text="{oFormModel>/Ename}"/>
+		<Label  text="{i18n>designation}"/>
+		<Text  text="{oFormModel>/Desig}"/>
+		<core:Title  level="H6"/>
+		<Label  text="{i18n>department}"/>
+		<Text  text="{oFormModel>/Depar}"/>
+		<Label  text="{i18n>office}"/>
+		<Text  text="{oFormModel>/Offic}"/>
+	</f:SimpleForm>
+	<FlexBox alignItems="Center" class="sapUiSmallMarginTop" justifyContent="Center">
+		<Text text="{i18n>projectName1}" wrapping="true"/>
+	</FlexBox>
+	<FlexBox  alignItems="Center" justifyContent="Center">
+				
+	<Table  class="sapUiSmallMarginTop"  >
+		<columns>
+			<Column  minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+				<Text  text="{i18n>name}"  />
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+				<Text text="{i18n>academicyear}"/>
+			</Column>
+			<Column  minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+				<Text  text="{i18n>course/class}"/>
+			</Column>
+			<Column  minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<Text  text="{i18n>school/college}"/>
+			</Column>
+			<Column  minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<Text text="{i18n>expensespm}"/>
+		</Column>
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle" >
+				<cells>
+					<Input type= "Text" liveChange="onDataValidation" enabled="{oViewModel>/enabled}" value="{oFormModel>/CName1}" required="true"/> 
+					<Input type="Number" liveChange="onDataValidation" enabled="{oViewModel>/enabled}" value="{oFormModel>/}" required="true"/>
+					<Input type="Text" liveChange="onDataValidation" enabled="{oViewModel>/enabled}" value="{oFormModel>/Class1}" required="true"/>
+					<Input type="Text" liveChange="onDataValidation" enabled="{oViewModel>/enabled}" value="{oFormModel>/Scl1}" required="true"/> 
+					<Input type="Number" liveChange="onDataValidation" enabled="{oViewModel>/enabled}" value="{oFormModel>/Exp1}" required="true"/>
+				</cells>
+			</ColumnListItem>
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<Input type= "Text" liveChange="onDataValidation" enabled="{oViewModel>/enabled}" value="{oFormModel>/CName2}" required="true"/> 
+					<Input type="Number"  liveChange="onDataValidation" enabled="{oViewModel>/enabled}" value="{oFormModel>/}" required="true"/>
+					<Input type="Text" liveChange="onDataValidation" enabled="{oViewModel>/enabled}" value="{oFormModel>/Class2}" required="true"/>
+					<Input type="Text" liveChange="onDataValidation" enabled="{oViewModel>/enabled}" value="{oFormModel>/Scl2}" required="true"/> 
+					<Input type="Number" liveChange="onDataValidation" enabled="{oViewModel>/enabled}" value="{oFormModel>/Exp2}" required="true"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+	</FlexBox>
+	<VBox  class="sapUiLargeMarginTop">
+		<Text  class="sapUiLargeMarginBegin" text="{i18n>declaration1}"/>
+		<Text  class="sapUiLargeMarginBegin" text="{i18n>declaration2}"/>
+		<ToolbarSpacer />
+		<Text  class="sapUiLargeMarginBegin" text="{i18n>declaration3}"/>
+		<Text  class="sapUiLargeMarginBegin" text="{i18n>declaration4}"/>
+		<Text  class="sapUiLargeMarginBegin" text="{i18n>declaration5}"/>
+		<Text class="sapUiLargeMarginBegin" text="{i18n>declaration6}"/>
+		<Text  class="sapUiLargeMarginBegin" text="{i18n>declaration7}"/>
+	</VBox>
+	<ToolbarSpacer />
+	<ToolbarSpacer />
+	<VBox  class="sapUiLargeMarginTop sapUiLargeMarginBeginEnd">
+		<FlexBox justifyContent="Start" alignContent="Start" alignItems="Start" fitContainer="true">
+			<Label  text="{i18n>date}: {oViewModel>/currentDate}"/>
+		</FlexBox>
+		<FlexBox alignItems="End" class="heading" justifyContent="End">
+			<Label  text="{i18n>sign}"/>
+			
+		</FlexBox>
+			</VBox>
+	<Button  text="{oViewModel>/btnText}" type="Emphasized" press="onSaveDraft" visible="{oViewModel>/btnSaveDraft}" enabled="{oViewModel>/btnMode}"/>
+	<Button  class="sapUiLargeMarginBegin" text="{i18n>btnBack}" type="Emphasized" press="onBack" visible="{oViewModel>/btnBack}"/>
+</core:FragmentDefinition>

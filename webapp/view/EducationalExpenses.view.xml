@@ -1,0 +1,29 @@
+<mvc:View xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" height="100%" controllerName="com.irda.zeducationalexpenses.controller.EducationalExpenses">
+
+	<Page id="page" >
+			
+				<headerContent>
+					<Select  forceSelection="true" change="onChangeLanguage">
+					     <core:ListItem  key="en" text="English"/>
+					     <core:ListItem  key="hi" text="Hindi"/>
+					     </Select>
+				</headerContent>
+			<content>
+				<Wizard id="idDeclarationWizard" complete="wizardCompletedHandler" showNextButton="false">
+					<WizardStep title="{i18n>fillOutFrom}">
+						<core:Fragment xmlns:core="sap.ui.core"  fragmentName="com.irda.zeducationalexpenses.view.fragments.Educationalexpenses" type="XML"/>
+					
+					</WizardStep>
+					<WizardStep title="{i18n>checkandSubmit}">
+						<core:Fragment xmlns:core="sap.ui.core"  fragmentName="com.irda.zeducationalexpenses.view.fragments.Educationalexpenses" type="XML"/>
+					</WizardStep>
+					<WizardStep  title="{i18n>completed}">
+					<core:Fragment xmlns:core="sap.ui.core"  fragmentName="com.irda.zeducationalexpenses.view.fragments.Formcompleted" type="XML"/>
+					<Button  text="{i18n>print}" type="Emphasized" ></Button>
+					</WizardStep>
+				</Wizard>
+				
+			</content>
+		</Page>
+
+</mvc:View>

@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout">
+	<FlexBox justifyContent="Center">
+	<Title 
+	text="{i18n>successMessage}"/>
+	</FlexBox>
+	<Button  text="{oViewModel>/btnText}" type="Emphasized" press="onPrint" visible="{oViewModel>/btnPrint}"></Button>
+</core:FragmentDefinition>
