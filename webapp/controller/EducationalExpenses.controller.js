@@ -142,7 +142,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
       }
       this.onValidateTable();
     },
-    onBack: function (oEvent) {
+    onBack: function () {
       var oViewModel = this.getView().getModel("oViewModel");
       oViewModel.setProperty("/btnSaveDraft", true);
       oViewModel.setProperty("/btnBack", false);
@@ -160,6 +160,5 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
       var oViewModel = this.getView().getModel("oViewModel");
       oViewModel.setProperty("/currentDate", this.getFormattedDate());
     },
-    //
   });
 });
