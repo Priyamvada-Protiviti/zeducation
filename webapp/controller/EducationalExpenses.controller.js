@@ -12,6 +12,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
           currentDate: this.getFormattedDate(),
         }),
         oFormModel = new JSONModel();
+        
       this.getView().setModel(oFormModel, "oFormModel");
       this.getView().setModel(oViewModel, "oViewModel");
       this.wizard = this.byId("idDeclarationWizard");
@@ -84,34 +85,34 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
         oViewModel.setProperty("/btnText", "Check and Send");
         oViewModel.setProperty("/btnBack", true);
         oViewModel.setProperty("/enabled", false);
-		this.saveFormData("D");
+        this.saveFormData("D");
       } else if (oEvent.getSource().getText() === "Check and Send") {
         oViewModel.setProperty("/btnBack", false);
         oViewModel.setProperty("/btnSaveDraft", true);
-		this.saveFormData("P");
+        this.saveFormData("P");
       }
       this.wizard.nextStep();
     },
 
-	saveFormData: function (sStatus) {
-        var oData = this.getView().getModel("oFormModel").getData();
-        oData.Status = sStatus;
-        oData.Fyear = new Date().getFullYear().toString();
-        this.oModel.create("/EsChildEducationForm", oData, {
-          success: function (oResponse) {
-            MessageBox.success(oResponse.Message);
-            this.getView().getModel("oFormModel").setData(oResponse);
-            if (oResponse.Status === "P") {
-              this.getView().getModel("oViewModel").setProperty("/btnSaveDraft", false);
-              this.getView().getModel("oViewModel").setProperty("/editMode", false);
-              this.getView().getModel("oViewModel").setProperty("/btnNext", true);
-            }
-          }.bind(this),
-          error: function () {
-            MessageBox.error(this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("failSave"));
-          }.bind(this),
-        });
-      },
+    saveFormData: function (sStatus) {
+      var oData = this.getView().getModel("oFormModel").getData();
+      oData.Status = sStatus;
+      oData.Fyear = new Date().getFullYear().toString();
+      this.oModel.create("/EsChildEducationForm", oData, {
+        success: function (oResponse) {
+          MessageBox.success(oResponse.Message);
+          this.getView().getModel("oFormModel").setData(oResponse);
+          if (oResponse.Status === "P") {
+            this.getView().getModel("oViewModel").setProperty("/btnSaveDraft", false);
+            this.getView().getModel("oViewModel").setProperty("/editMode", false);
+            this.getView().getModel("oViewModel").setProperty("/btnNext", true);
+          }
+        }.bind(this),
+        error: function () {
+          MessageBox.error(this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("failSave"));
+        }.bind(this),
+      });
+    },
 
     onDataValidation: function (oEvent) {
       var sColumnType = oEvent.getSource().getType();
