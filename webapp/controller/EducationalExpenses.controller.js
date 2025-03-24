@@ -16,7 +16,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
       this.getView().setModel(oFormModel, "oFormModel");
       this.getView().setModel(oViewModel, "oViewModel");
       this.wizard = this.byId("idDeclarationWizard");
-      var a = 10;
+      console.log("branch2 change");
       this.wizard._getProgressNavigator().ontap = function () {};
       this.oModel = this.getOwnerComponent().getModel();
       var aFilters = [];
